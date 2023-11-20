@@ -1,0 +1,68 @@
+# RtpLossDetect
+
+RtpLossDetect is a small series of scripts / programs that can help you detect packetloss in your network using RTP as baseline protocoll.
+
+## Installation
+
+Programs need Golang with pcap and Python3
+
+```bash
+# Install dep for rtpgen
+
+apt install golang 
+apt install golang-github-akrennmair-gopcap-dev/stable
+cd rtpgen
+go build
+
+# rtpgen / rtpgenrcv needs python3
+apt install python3
+
+```
+
+## Usage
+Modify rtpgen.py with the right vars
+
+```python
+# On the send side
+# RTP packet generator parameters
+source_port = 11337
+destination_port = 21338
+destination_ip = "192.168.10.146"  # Replace with actual IP
+payload_size = 160
+packet_interval = 0.02
+```
+
+```bash
+# On the rcv side - edit rtpgenrcv/start.sh - set the right vars
+
+PORT=21338
+NIC=wlan0
+
+
+
+```bash
+# Start generating packets
+python rtpgen/rtpgen.py
+
+# Simulate loss
+bash rtpgen/loss.sh 1%
+```
+
+On the rcv side
+```bash
+# After setting the right vars in start.sh
+bash rtpgenrcv/start.sh
+```
+
+start.sh will generate output if it detects packetloss from the rtpgen. E.g. if sequence number in rtp stream does not add up.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
