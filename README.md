@@ -20,6 +20,8 @@ apt install python3
 ```
 
 ## Usage
+Please, before use read the differenet scripts. Get to know them. 
+
 Modify rtpgen.py with the right vars
 
 ### Setup - Send side
