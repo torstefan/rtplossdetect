@@ -22,6 +22,7 @@ apt install python3
 ## Usage
 Modify rtpgen.py with the right vars
 
+### Setup - Send side
 ```python
 # On the send side
 # RTP packet generator parameters
@@ -32,14 +33,14 @@ payload_size = 160
 packet_interval = 0.02
 ```
 
+### Setup - RCV Side
 ```bash
 # On the rcv side - edit rtpgenrcv/start.sh - set the right vars
-
 PORT=21338
 NIC=wlan0
 ```
 
-
+### Usage
 
 ```bash
 # Start generating packets
