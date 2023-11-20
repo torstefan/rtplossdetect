@@ -7,16 +7,17 @@ RtpLossDetect is a small series of scripts / programs that can help you detect p
 Programs need Golang with pcap and Python3
 
 ```bash
-# Install dep for rtpgen
-
-apt install golang 
-apt install golang-github-akrennmair-gopcap-dev/stable
+# rtpgen needs golang and golangpcap for sniffing packets
+sudo apt-get install  golang 
+sudo apt-get install  golang-github-akrennmair-gopcap-dev/stable
 cd rtpgen
 go build
 
 # rtpgen / rtpgenrcv needs python3
-apt install python3
+sudo apt-get install python3
 
+# loss.sh needs tc - traffic control part of iproute2
+sudo apt-get install iproute2
 ```
 
 ## Usage
